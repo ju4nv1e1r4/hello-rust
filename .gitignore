@@ -1,0 +1,8 @@
+# Diretório de build do Cargo
+target/
+
+# Arquivos do Cargo que não precisam ir para o Git
+Cargo.lock
+
+# Arquivos temporários do editor
+*.rs.bk
