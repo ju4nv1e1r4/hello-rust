@@ -40,7 +40,6 @@ fn one_step_away(str1: &str, str2: &str) -> bool {
 }
 
 fn main() {
-    // chars qty
     println!("=> Same lenght of chars...");
     let mut string1 = "juan";
     let mut string2 = "caio";
@@ -49,7 +48,6 @@ fn main() {
     println!("Comparação entre {} e {}", string1, string2);
     println!("Resultado: {}", distance);
 
-    // removing "a"
     println!("\n=> Removing 'a' char...");
     string1 = "pale";
     string2 = "ple";
