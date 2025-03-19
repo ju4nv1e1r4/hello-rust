@@ -7,6 +7,12 @@ struct Metadata {
     datasource: String
 }
 
+struct Status (i32, String, bool);
+
+fn metadata_print(name: &Metadata) {
+    println!("{}", name.filename)
+}
+
 fn main() {
     let my_data = Metadata{
         fileid: String::from("0ais5u7dh987394Hio5"),
@@ -21,4 +27,18 @@ fn main() {
     println!("Description: {}", my_data.description);
     println!("Created At: {}", my_data.createdat);
     println!("Data Source: {}", my_data.datasource);
+
+    println!("------------------------");
+
+    metadata_print(&my_data);
+    metadata_print(&my_data);
+    println!("------------------------");
+
+    // tuple structs
+    
+    let new_file = Status(1, String::from("control.csv"), true);
+
+    println!("{}", new_file.0);
+    println!("{}", new_file.1);
+    println!("{}", new_file.2);
 }
