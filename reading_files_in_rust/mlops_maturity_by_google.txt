@@ -1,0 +1,82 @@
+A ciência de dados e o ML estão se tornando recursos essenciais para resolver problemas complexos do mundo real, transformando setores e agregando valor em todos os domínios. Atualmente, os ingredientes para aplicar o ML eficaz disponíveis para você:
+
+Conjuntos de dados grandes
+Recursos de computação sob demanda baratos
+Aceleradores especializados para ML em várias plataformas de nuvem
+Avanços rápidos em diferentes campos de pesquisa de ML (como visão computacional, processamento de linguagem natural, IA generativa e sistemas de IA de recomendações).
+Portanto, muitas empresas estão investindo em suas equipes de ciência de dados e recursos de ML para desenvolver modelos preditivos que podem agregar valor aos negócios.
+
+Este documento é destinado aos cientistas de dados e engenheiros de ML que querem aplicar princípios de DevOps a sistemas de ML (MLOps). O MLOps é uma cultura e uma prática de engenharia de ML que visa unificar o desenvolvimento de sistemas de ML (Dev) e a operação de sistemas de ML (Ops). A prática de MLOps significa que você defende a automação e o monitoramento de todos os passos da construção do sistema de ML, inclusive integração, teste, lançamento, implantação e gerenciamento de infraestrutura.
+
+Os cientistas de dados podem implementar e treinar um modelo de ML com desempenho preditivo em um conjunto de dados de validação off-line, com os dados de treinamento relevantes para o caso de uso. No entanto, o verdadeiro desafio não é criar um modelo de ML, mas criar um sistema de ML integrado e operá-lo continuamente na produção. Com a longa história dos serviços de ML de produção no Google, descobrimos que pode haver muitas armadilhas na operação de sistemas baseados em ML na produção. Algumas armadilhas são resumidas em Aprendizado de máquina: o cartão de crédito de alto interesse de débito técnico.
+
+Conforme mostrado no diagrama a seguir, apenas uma pequena fração de um sistema de ML real é composta pelo código de ML. Os elementos envolventes necessários são grandes e complexos.
+
+O diagrama anterior mostra os seguintes componentes do sistema:
+
+Configuração
+Automação
+Coleta de dados
+Verificação de dados
+Testes e depuração
+Gerenciamento de recursos
+Análise de modelos
+Gerenciamento de processos e metadados
+Infraestrutura de exibição
+Monitoramento
+Para desenvolver e operar sistemas complexos como esses, aplique princípios de DevOps a sistemas de ML (MLOps). Este documento aborda conceitos a serem considerados ao configurar um ambiente MLOps para suas práticas de ciência de dados, como CI, CD e TC em ML.
+
+Os seguintes tópicos são discutidos:
+
+DevOps versus MLOps
+Passos para desenvolver modelos de ML
+Níveis de maturidade dos MLOps
+MLOps para IA generativa
+DevOps versus MLOps
+O DevOps é uma prática comum no desenvolvimento e na operação de sistemas de software em larga escala. Essa prática oferece benefícios como encurtar os ciclos de desenvolvimento, aumentar a velocidade de implantação e as versões confiáveis. Para alcançar esses benefícios, dois conceitos no desenvolvimento do sistema de software são introduzidos:
+
+Integração contínua (CI)
+Entrega contínua (CD)
+Um sistema de ML é um sistema de software. Portanto, práticas semelhantes se aplicam para garantir que você crie e opere sistemas de ML de maneira confiável em escala.
+
+No entanto, os sistemas de ML diferem de outros sistemas de software das seguintes maneiras:
+
+Habilidades da equipe: em um projeto de ML, a equipe geralmente inclui cientistas de dados ou pesquisadores de ML, que se concentram em análise exploratória de dados, desenvolvimento de modelos e experimentação. Esses membros podem não ser engenheiros de software experientes capaz de criar serviços de classe de produção.
+
+Desenvolvimento: ML é essencialmente experimental. Teste diferentes recursos, algoritmos, técnicas de modelagem e configurações de parâmetros para encontrar o que funciona melhor para o problema o mais rápido possível. O desafio é acompanhar o que funcionou e o que não funcionou, além de manter a reprodutibilidade enquanto maximiza a reutilização do código.
+
+Teste: testar um sistema de ML exige mais do que testar outros sistemas de software. Além dos testes típicos de unidade e integração, é preciso validar dados, avaliar a qualidade de modelo treinado e validar o modelo.
+
+Implantação: em sistemas de ML, a implantação não é tão simples quanto em um modelo de ML treinado off-line como um serviço de previsão. Os sistemas de ML podem exigir que você implante um pipeline de vários passos para treinar e implantar automaticamente os modelos. Esse pipeline aumenta a complexidade e exige que você automatize os passos feitos manualmente antes da implantação por cientistas de dados para treinar e validar novos modelos.
+
+Produção: os modelos de ML podem ter desempenho reduzido não apenas devido à codificação abaixo do ideal, mas também à evolução contínua dos perfis de dados. Em outras palavras, os modelos podem diminuir com mais frequência do que os sistemas de software tradicionais, e você precisa considerar essa degradação. Portanto, é necessário rastrear as estatísticas resumidas dos dados e monitorar o desempenho on-line do modelo para enviar notificações ou reverter quando os valores diferem das expectativas.
+
+O ML e outros sistemas de software são semelhantes na integração contínua de controle de origem, teste de unidade, teste de integração e entrega contínua do módulo de software ou do pacote. No entanto, no ML, existem algumas diferenças notáveis:
+
+A CI não se trata mais de apenas testar e validar código e componentes, mas também testar e validar dados, esquemas de dados e modelos.
+O CD não é mais sobre um único pacote de software ou serviço, mas um sistema (um pipeline de treinamento de ML) que deve implantar automaticamente outro serviço (serviço de predição de modelo).
+O TC é uma nova propriedade, exclusiva para sistemas de ML, que se preocupa em treinar e exibir automaticamente os modelos.
+A seção a seguir discute os passos típicos de treinamento e avaliação de um modelo de ML para servir como um serviço de previsão.
+
+Passos da ciência de dados para ML
+Em qualquer projeto de ML, depois de definir o caso de uso de negócios e estabelecer os critérios de sucesso, o processo de entrega de um modelo de ML à produção envolve os passos a seguir. Esses passos podem ser concluídos manualmente ou por um pipeline automático.
+
+Extração de dados: selecione e integre os dados relevantes de várias fontes de dados para a tarefa de ML.
+Análise de dados: realize uma análise de dados exploratória (EDA) para entender os dados disponíveis para a criação do modelo de ML. Esse processo leva ao seguinte:
+Noções básicas sobre o esquema de dados e as características esperadas pelo modelo.
+Identificar a preparação de dados e a engenharia de atributos necessárias para o modelo.
+Preparação de dados: os dados são preparados para a tarefa de ML. Essa preparação envolve a limpeza de dados, em que você os divide em conjuntos de treinamento, validação e teste. Também é possível aplicar transformações de dados e engenharia de atributos ao modelo que resolve a tarefa de destino. A saída deste passo são as divisões de dados no formato preparado.
+Treinamento de modelo: o cientista de dados implementa diferentes algoritmos com os dados preparados para treinar vários modelos de ML. Além disso, os algoritmos implementados ficam sujeitos ao ajuste de hiperparâmetros para atingir o modelo de ML de melhor desempenho. A saída deste passo é um modelo treinado.
+Avaliação do modelo: o modelo é avaliado em um conjunto de testes de validação para avaliar a qualidade do modelo. A saída deste passo é um conjunto de métricas para avaliar a qualidade do modelo.
+Validação do modelo: confirma-se que o modelo é adequado para implantação, o desempenho preditivo é melhor do que uma determinada linha de base.
+Exibição do modelo: o modelo validado é implantado em um ambiente de destino para exibir previsões. Essa implantação pode ser uma das seguintes:
+Microsserviços com uma API REST para exibir previsões on-line.
+Um modelo incorporado a uma borda ou dispositivo móvel.
+Parte de um sistema de previsão em lote.
+Monitoramento do modelo: o desempenho preditivo do modelo é monitorado para invocar uma nova iteração no processo de ML.
+O nível de automação desses passos define a maturidade do processo de ML, que reflete a velocidade de treinamento de novos modelos com base em novos dados ou treinamento de novas implementações. As seções a seguir descrevem três níveis de MLOps, começando pelo nível mais comum, que não envolve automação, até a automatização de pipelines de ML e CI/CD.
+
+
+Podemos ver o artigo completo em: https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning?hl=pt-br
+
+

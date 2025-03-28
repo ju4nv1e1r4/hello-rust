@@ -1,0 +1,8 @@
+Rust's performance, low-level control, and zero-cost high-level abstractions make it a compelling alternative to more established ecosystems for Machine Learning. While the Rust ML ecosystem is still young and best described as experimental, several ambitious projects and building blocks have emerged.
+In addition to the many wonderful projects that contain individual implementations of certain methods and algorithms (many of which are listed here), there are also meta-crates like linfa and smartcore that provide a convenient, bundled approach to many machine learning algorithms that may be of interest to developers looking for a practical solution
+As a developing ecosystem, there are plenty of opportunities for contributors to fill in the gaps by helping out existing projects or starting new ones.
+To see more: https://www.arewelearningyet.com/
+
+To see more: https://www.arewelearningyet.com/
+
+To see more: https://www.arewelearningyet.com/
