@@ -1,5 +1,5 @@
 fn one_step_away(str1: &str, str2: &str) -> bool {
-    let len1 = str1.len(); 
+    let len1 = str1.len();
     let len2 = str2.len();
 
     if (len1 as i32 - len2 as i32).abs() > 1 {
@@ -11,7 +11,7 @@ fn one_step_away(str1: &str, str2: &str) -> bool {
     let mut len_str2 = 0;
 
     while len_str1 < len1 && len_str2 < len2 {
-        if str1.chars().nth(len_str1) != str2.chars().nth(len_str2){
+        if str1.chars().nth(len_str1) != str2.chars().nth(len_str2) {
             edits += 1;
 
             if len1 > len2 {
@@ -55,5 +55,4 @@ fn main() {
     let distance = one_step_away(string1, string2);
     println!("Comparação entre {} e {}", string1, string2);
     println!("Resultado: {}", distance);
-
 }
